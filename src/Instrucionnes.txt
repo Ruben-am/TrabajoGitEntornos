@@ -1,0 +1,1 @@
+Cuando se recoja la clave en el main tiene que ser si o si de 16 caracteres. (Jhon)
