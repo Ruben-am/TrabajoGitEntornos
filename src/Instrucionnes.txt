@@ -1,1 +1,10 @@
 Cuando se recoja la clave en el main tiene que ser si o si de 16 caracteres. (Jhon)
+La estructura de los archivos es esta:
+├── Main.java
+├── PasswordManager.java
+├── PasswordGenerator.java
+├── EncryptionUtils.java
+├── PasswordEntry.java
+└── data/
+    └── passwords.txt
+asi q tienes que comprobar si la carpeta data existe, y si no existe crearla, y lo mismo con el txt de password. (Jhon)
