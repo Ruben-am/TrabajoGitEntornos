@@ -1,7 +1,4 @@
-public class Main {
-    public static void main(String[] args) {
 
-    }
     // IMPORTANTE leer intrucciones antes de hacer
     //Lo hace Jhon
     /*
@@ -9,4 +6,14 @@ public class Main {
     Muestra un menú en consola (tipo while + switch)
     Llama a métodos de PasswordManager según lo que elija el usuario
     */
-}
+    import javax.crypto.*;
+    import java.io.*;
+    import java.security.*;
+    import java.util.Scanner;
+
+    public class Main {
+        public static void main(String[] args) throws IOException {
+
+        }
+    }
+
