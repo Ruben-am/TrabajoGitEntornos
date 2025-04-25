@@ -36,29 +36,28 @@
                 boolean salir = false;
                 while (!salir) {
                     mostrarMenu();
-                    try {
-                        int opt = Integer.parseInt(sc.nextLine());
-                        switch (opt) {
-                            case 1:
-                                //Aqui llamar al metodo de crear contra cuando se cree
-                                break;
-                            case 2:
-                                //Aqui llamar al metodo de mostrar contra
-                                break;
-                            case 3:
-                                salir = true;
-                                break;
-                            default:
-                                System.out.println("Introduce una opción válida (1-3)");
+
+                    int opt = Integer.parseInt(sc.nextLine());
+                    switch (opt) {
+                        case 1:
+                            gestor.annadirEntrada();
+                            gestor.guardar();
+                            break;
+                        case 2:
+                            gestor.mostrarContrasenna();
+                            break;
+                        case 3:
+                            salir = true;
+                            break;
+                        default:
+                            System.out.println("Introduce una opción válida (1-3)");
                         }
 
-                    } catch (NumberFormatException e) {
-                        System.out.println("Por favor, introduce un número.");
-                    }
+
                 }
 
                 sc.close();
-            }catch (IOException | NumberFormatException e) {
+            }catch (Exception e) {
                 System.err.println("Ha ocurrido un error: " + e.getMessage());
             }
 
