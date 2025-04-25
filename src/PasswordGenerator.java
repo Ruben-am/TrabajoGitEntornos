@@ -9,7 +9,7 @@ public class PasswordGenerator {
 
     // Mtodo para generar una contraseña normal con una longitud configurable
     public static String generarPass(int length) {
-        return generateRandomString(length);  
+        return generateRandomString(length);
     }
 
     // Metodo auxiliar para generar una cadena aleatoria

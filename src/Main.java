@@ -1,19 +1,11 @@
-
-    // IMPORTANTE leer intrucciones antes de hacer
-    //Lo hace Jhon
-    /*
-    Pide la clave maestra al usuario (Clave para encriptar tiene que ser si o si de 16 caracteres)
-    Muestra un menú en consola (tipo while + switch)
-    Llama a métodos de PasswordManager según lo que elija el usuario
-    */
-    import javax.crypto.*;
     import java.io.*;
-    import java.security.*;
     import java.util.Scanner;
 
     public class Main {
         public static void main(String[] args) throws IOException {
+
             try {
+
                 // 1. Crear carpeta "data" si no existe
                 File dataDir = new File("data");
                 if (!dataDir.exists()) {
@@ -27,7 +19,18 @@
                 }
 
                 Scanner sc = new Scanner(System.in);
-                String clave = pedirClaveMaestra(sc);
+                String clave = "";
+                System.out.println("Tienes una clave registrada?");
+                System.out.println("1. Si");
+                System.out.println("2. No");
+                String input = sc.nextLine();
+                if (input.equalsIgnoreCase("1") || input.equalsIgnoreCase("Si")) {
+                    clave = pedirClaveMaestra(sc,true);
+                }else if (input.equalsIgnoreCase("2") || input.equalsIgnoreCase("No")) {
+                    clave = pedirClaveMaestra(sc,false);
+                }
+
+
 
                 // 3. Instanciar el gestor con la clave
                 PasswordManager gestor = new PasswordManager(passwordFile, clave);
@@ -50,7 +53,7 @@
                             salir = true;
                             break;
                         default:
-                            System.out.println("Introduce una opción válida (1-3)");
+                            System.out.println("Introduce una opci\u00FAn válida (1-3)");
                         }
 
 
@@ -63,12 +66,12 @@
 
         }
 
-        private static String pedirClaveMaestra(Scanner sc) {
+        private static String pedirClaveMaestra(Scanner sc, boolean tieneClave) {
             String clave = "";
             boolean confirmada = false;
 
             while (!confirmada) {
-                System.out.print("Introduce una clave de 16 caracteres para encriptar tus contrase\u00D1as: ");
+                System.out.print("Introduce una clave de 16 caracteres para encriptar tus contrase\u00F1as: ");
                 clave = sc.nextLine();
 
                 while (clave.length() != 16) {
@@ -81,7 +84,7 @@
                 System.out.println("Recuerda: debes usar siempre la misma clave para desencriptar.");
 
                 String respuesta = "";
-                System.out.print("¿Est\u00E1s seguro de usar esta clave? (S/N): ");
+                System.out.print("\u00BFEst\u00E1s seguro de usar esta clave? (S/N): ");
                 respuesta = sc.nextLine().trim().toLowerCase();
 
                 while (!respuesta.equals("s") && !respuesta.equals("n")) {
@@ -98,8 +101,8 @@
         }
         private static void mostrarMenu() {
             System.out.println("\n--- MENU DE OPCIONES ---");
-            System.out.println("1. Añadir contraseña");
-            System.out.println("2. Mostrar contraseña");
+            System.out.println("1. A\u00F1adir contrase\u00F1a");
+            System.out.println("2. Mostrar contrase\u00F1a");
             System.out.println("3. Salir");
             System.out.print("Opción: ");
         }
