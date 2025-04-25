@@ -13,50 +13,56 @@
 
     public class Main {
         public static void main(String[] args) throws IOException {
-            // 1. Crear carpeta "data" si no existe
-            File dataDir = new File("data");
-            if (!dataDir.exists()) {
-                dataDir.mkdirs();
-            }
-
-            // 2. Crear el fichero si no existe
-            File passwordFile = new File(dataDir, "password.txt");
-            if (!passwordFile.exists()) {
-                passwordFile.createNewFile();
-            }
-
-            Scanner sc = new Scanner(System.in);
-            String clave = pedirClaveMaestra(sc);
-
-            // 3. Instanciar el gestor con la clave
-            PasswordManager gestor = new PasswordManager(passwordFile, clave);
-
-            //4. Salir
-            boolean salir = false;
-            while (!salir) {
-                mostrarMenu();
-                try {
-                    int opt = Integer.parseInt(sc.nextLine());
-                    switch (opt) {
-                        case 1:
-                            //Aqui llamar al metodo de crear contra cuando se cree
-                            break;
-                        case 2:
-                            //Aqui llamar al metodo de mostrar contra
-                            break;
-                        case 3:
-                            salir = true;
-                            break;
-                        default:
-                            System.out.println("Introduce una opción válida (1-3)");
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("Por favor, introduce un número.");
+            try {
+                // 1. Crear carpeta "data" si no existe
+                File dataDir = new File("data");
+                if (!dataDir.exists()) {
+                    dataDir.mkdirs();
                 }
+
+                // 2. Crear el fichero si no existe
+                File passwordFile = new File(dataDir, "password.txt");
+                if (!passwordFile.exists()) {
+                    passwordFile.createNewFile();
+                }
+
+                Scanner sc = new Scanner(System.in);
+                String clave = pedirClaveMaestra(sc);
+
+                // 3. Instanciar el gestor con la clave
+                PasswordManager gestor = new PasswordManager(passwordFile, clave);
+
+                //4. Salir
+                boolean salir = false;
+                while (!salir) {
+                    mostrarMenu();
+                    try {
+                        int opt = Integer.parseInt(sc.nextLine());
+                        switch (opt) {
+                            case 1:
+                                //Aqui llamar al metodo de crear contra cuando se cree
+                                break;
+                            case 2:
+                                //Aqui llamar al metodo de mostrar contra
+                                break;
+                            case 3:
+                                salir = true;
+                                break;
+                            default:
+                                System.out.println("Introduce una opción válida (1-3)");
+                        }
+
+                    } catch (NumberFormatException e) {
+                        System.out.println("Por favor, introduce un número.");
+                    }
+                }
+
+                sc.close();
+            }catch (IOException | NumberFormatException e) {
+                System.err.println("Ha ocurrido un error: " + e.getMessage());
             }
 
-            sc.close();
-        } 
+        }
 
         private static String pedirClaveMaestra(Scanner sc) {
             String clave = "";
