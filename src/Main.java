@@ -71,16 +71,28 @@
             boolean confirmada = false;
 
             while (!confirmada) {
-                System.out.print("Introduce una clave de 16 caracteres para encriptar tus contrase\u00F1as: ");
-                clave = sc.nextLine();
-
-                while (clave.length() != 16) {
-                    System.out.println("La clave debe tener exactamente 16 caracteres.");
-                    System.out.print("Vuelve a introducir la clave: ");
+                System.out.println("Quieres una contraseña aleatoria?");
+                System.out.println("1. Si");
+                System.out.println("2. No");
+                String input = sc.nextLine();
+                if (input.equalsIgnoreCase("1") || input.equalsIgnoreCase("Si")) {
+                    clave = PasswordGenerator.generarClaveMaestra();
+                    System.out.println("Se ha introducido la clave: " + clave);
+                }else if (input.equalsIgnoreCase("2") || input.equalsIgnoreCase("No")) {
+                    System.out.print("Introduce una clave de 16 caracteres para encriptar tus contrase\u00F1as: ");
                     clave = sc.nextLine();
+
+                    while (clave.length() != 16) {
+                        System.out.println("La clave debe tener exactamente 16 caracteres.");
+                        System.out.print("Vuelve a introducir la clave: ");
+                        clave = sc.nextLine();
+                    }
+
+                    System.out.println("Has introducido la clave: " + clave);
+                }else{
+
                 }
 
-                System.out.println("Has introducido la clave: " + clave);
                 System.out.println("Recuerda: debes usar siempre la misma clave para desencriptar.");
 
                 String respuesta = "";
