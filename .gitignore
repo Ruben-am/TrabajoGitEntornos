@@ -2,7 +2,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-/data/password.txt
+data/
 
 ### Eclipse ###
 .apt_generated
