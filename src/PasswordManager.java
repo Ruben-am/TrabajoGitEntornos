@@ -22,10 +22,33 @@ public class PasswordManager {
     //Encripta la contraseña y guarda el servicio + contraseña en un objeto de la clase PasswordEntry
     //Guarda el objeto en un array list de objetos(PasswordEntry)
     public void annadirEntrada() throws IllegalBlockSizeException, NoSuchPaddingException, BadPaddingException, NoSuchAlgorithmException, InvalidKeyException {
+        int opt = 0;
+        String contrasenna = "";
         System.out.println("Nombre del servicio:");
         String nomServicio = sc.nextLine().toLowerCase();
-        System.out.println("Introduce la contraseña que quieres registrar en " + nomServicio + ": ");
-        String contrasenna = sc.nextLine();
+        while (opt != 1 && opt != 2) {
+            System.out.println("1. Introducir contraseña manualmente");
+            System.out.println("2. Generar contraseña aleatoria");
+            System.out.println("Que accion quieres realizar");
+            try {
+                opt = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("ERROR, Introduce un numero");
+            }
+            switch (opt) {
+                case 1:
+                    System.out.println("Introduce la contraseña que quieres registrar en " + nomServicio + ": ");
+                    contrasenna = sc.nextLine();
+                    break;
+                case 2:
+                    System.out.println("Cuantos caracteres quieres que tenga la clave");
+                    int numCaracteres = sc.nextInt();
+                    contrasenna = PasswordGenerator.generarPass(numCaracteres);
+                    break;
+                default:
+                    System.out.println("Esa opcion no existe");
+            }
+        }
         String conEncryp = Encryption.encriptar(contrasenna, clave);
         datos.add(new PasswordEntry(nomServicio, conEncryp));
     }
