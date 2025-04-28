@@ -2,7 +2,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-Puebas.java
+/data/password.txt
 
 ### Eclipse ###
 .apt_generated
