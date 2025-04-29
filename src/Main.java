@@ -161,6 +161,4 @@
             System.out.println("3. Salir");
             System.out.print("Opción: ");
         }
-
-        //Prueba para error
     }
