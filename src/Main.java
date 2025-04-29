@@ -98,8 +98,6 @@
                         }
                     }
 
-                /* PRUEBA PARA COMPROBAR ERROR */
-
             }else {
                 while (!confirmada) {
                     System.out.println("Quieres una contraseña aleatoria de 16 caracteres?");
