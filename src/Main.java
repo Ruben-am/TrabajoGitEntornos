@@ -162,5 +162,5 @@
             System.out.print("Opción: ");
         }
 
-        //Prueba para comprobar error
+        //Prueba para error
     }
