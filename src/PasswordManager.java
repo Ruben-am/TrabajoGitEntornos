@@ -32,6 +32,7 @@ public class PasswordManager {
             System.out.println("Que accion quieres realizar");
             try {
                 opt = sc.nextInt();
+                sc.nextLine();
             } catch (Exception e) {
                 System.out.println("ERROR, Introduce un numero");
             }
